@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Curlett Family</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  /*color 818181 is a grayish color*/
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  /*Added text shadow, font-variant to h1*/
+   h1 {
+      font-size: 35px;
+      text-transform: none;
+      text-shadow: 2px 2px #000;
+      color: #f4511e;
+      font-weight: 900;
+      margin-bottom: 30px;
+      font-variant: small-caps;
+      text-align: center;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: none;
+      font-variant: small-caps;
+      color: #006699;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-variant: small-caps;
+      color: #006699;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+  .jumbotron {
+    background-color: #006699;
+      color: #fff;
+      padding: 0px;
+      font-family: Montserrat, sans-serif;
+}
+.ancestor {
+  background: url(web-family/family-header.jpg);
+  background-repeat: no-repeat;
+  width:auto;
+  height: 570px; 
+  padding-top:10px;
+  margin:0 0 0 20px;
+  display: inherit;
+
+}
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+  }
+  .logo {
+      color: #f4511e;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-image {
+    margin-left: 30px;
+    padding: 0px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #006699;
+  }
+  .carousel-indicators li {
+      border-color: #818181;
+  }
+  .carousel-indicators li.active {
+      background-color: #f4511e;
+  }
+  /*added background color and color for the font*/
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+      background-color: #006699;
+      color: #fff;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #f4511e; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #006699 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: #f4511e !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+  }
+  /*!important tag means to make your classes super robust and not easily trifled with*/
+  /*The z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order.*/
+  /*Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)*/
+  .navbar {
+      margin-bottom: 0;
+      background-color: #006699;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f4511e;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;	
+      animation-duration: 1s;	
+      -webkit-animation-duration: 1s;
+      visibility: visible;			
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }	
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img src="web-family/emma.jpg" class="img-circle" width="60px" height="67px"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#matriarchs">MATRIARCHS</a></li>
+        <li><a href="#patriarchs">PATRIARCHS</a></li>
+        <li><a href="#hierarchy">HIERARCHY</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+ <div class="ancestor"></div></div></div>
+
+ 
+   <h1>Decendants of Emma Jean Houston</h1> 
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Emma Jean Houston</h2><br>
+      <h4>Emma Houston was born on October 10, 1928 to the union of Homer Sanders and Mattie Cooney in Biscoe Arkansas. She was educated in the Biscoe Public School System and professed a hope in Christ at an early age. One son Melvin Houston preceded her in death.</h4><br>
+      <p>Emma touched the lives of all those who knew her. She was a loving and giving person. Everyone looked up to her and never hesitated to ask her for her help on their favorite 
+        recipe. She enjoyed spending time with her family and friend as well as traveling and watching her favorite TV shows. She trusted and believed in the LORD, never complained no matter the circumstance. Not only was she a Mother, she was also a Friend, Provider, Teacher; actually she was "One in a Million".</p>
+      
+    </div>
+    <div class="col-sm-4">
+      <p><img src="web-family/emma.jpg" class="img-circle" width="327px" height="327px"></p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <p><img src="web-family/ladies.jpg" class="img-circle" width=387px" height="290px"></p>
+    </div>
+    <div class="col-sm-8">
+      <h2>The Daughters of Emma Jean Houston</h2><br>
+      <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="matriarchs" class="container-fluid text-center">
+  <h2>Matriarchs</h2>
+  <h4>Our Virtuous Women</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <h4>EMMA JEAN'S DAUGHTERS</h4>
+      <img src="web-family/ladies.jpg" class="img-circle" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     
+      
+    </div>
+    <div class="col-sm-4">
+       <h4>LYNETTE</h4>
+    <p><img src="web-family/lynette.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-heart logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+        <h4>AUDREY</h4>
+    <p><img src="web-family/audrey.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-star logo-small"></span>
+    
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+     <h4>KIM</h4>  
+        <p><img src="web-family/kim.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+   <h4>CRICKET</h4>    
+        <p><img src="web-family/cricket.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+      <h4>ESTHER</h4> 
+        <p><img src="web-family/esther.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+     
+    </div>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+   <h4>SYLVESTER ANS WIFE</h4>   
+      <p><img src="web-family/syl.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+      
+    </div>
+    <div class="col-sm-4">
+  <h4>SHARON</h4>     
+    <p><img src="web-family/sharon.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-heart logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+  <h4>MATTIE JEAN</h4>      
+    <p><img src="web-family/mattie.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-star logo-small"></span>
+    
+    </div>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+  <h4>TOPPIE</h4>     
+      <p><img src="web-family/toppie.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+   <h4>DEBRA</h4>    
+    <p><img src="web-family/debra.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-heart logo-small"></span>
+     
+    </div>
+    <div class="col-sm-4">
+  <h4>SHARETTE</h4>     
+    <p><img src="web-family/sharette.jpg" class="img-circle" alt="Women" width="387px" height="290px"></p>
+    <span class="glyphicon glyphicon-star logo-small"></span>
+     
+    </div>
+  </div>
+  <br><br>
+  </div>
+
+<!-- Container (Portfolio Section) -->
+<div id="patriarchs" class="container-fluid text-center bg-grey">
+  <h2>Patriarchs</h2><br>
+  <h4>Our Men</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="web-family/men1.jpg" class="img-rounded" alt="Men" width="400" height="300">
+        <p><strong>Drake, Keith, Syl and Claude</strong></p>
+       
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="web-family/men2.jpg" class="img-rounded" alt="Men" width="400" height="300">
+        <p><strong>Robert and his daughters</strong></p>
+       
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="web-family/men3.jpg" class="img-rounded" alt="Men" width="400" height="300">
+        <p><strong>Mann and Mister</strong></p>
+      
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>FANILY REUNION 2014</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <div class="carousel-image"><img src="web-family/carousel1.jpg" alt="Carousel1"></div>
+        <div class="carousel-caption">
+        <h4>What a great job Cricket and her planning committee did."<br><span style="font-style:normal;">Thank You Family for your love and support.</span></h4>
+
+        </div>
+      </div>
+      
+
+      <div class="item">
+        <div class="carousel-image"><img src="web-family/carousel2.jpg" alt="Carousel2"></div>
+        <div class="carousel-caption">
+       
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="carousel-image"><img src="web-family/carousel3.jpg" alt="Carousel3"></div>
+        <div class="carousel-caption">
+        
+        </div>
+      </div>
+        
+        <div class="item">
+        <div class="carousel-image"><img src="web-family/carousel4.jpg" alt="Carousel4"></div>
+        <div class="carousel-caption">
+       
+        </div>
+      </div>
+       
+        <div class="item">
+       <div class="carousel-image"><img src="web-family/carousel5.jpg" alt="Carousel5"></div>
+        <div class="carousel-caption">
+        
+        </div>
+      </div>
+     </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+   </div>
+</div>
+
+<!-- Container (Hierarchy) -->
+<div id="hierarchy" class="container-fluid">
+  <div class="text-center">
+    <h2>Hierarchy</h2>
+    <h4>The Family Tree</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Dad</h1>
+        </div>
+        <div class="panel-body">
+          <p><img src="web-family/robertSr.jpg" class="img-circle" alt="Dad" width="300px" height="350px"></p>
+          <p><strong>Robert Elvin Curlett</strong> aka Redd</p>
+          <p><img src="web-family/reddKatherine.jpg" class="img-circle" alt="Dad" width="300px" height="350px"></p>
+          <p><strong>Dad and Mom Katherine</strong></p>
+          <p><img src="web-family/mamieRedd.jpg" class="img-circle" alt="Dad" width="300px" height="350px"></p>
+            <p><strong>Dad and Mom</strong></p>
+        </div>
+        <div class="panel-footer">
+           <p><img src="web-family/emmaLogo.jpg" class="img-rounded" alt="EJH" width="150px" height="150px"></p>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Mom</h1>
+        </div>
+        <div class="panel-body">
+         <p><img src="web-family/mamie.jpg" class="img-rounded" alt="Dad" width="300px" height="350px"></p>
+         <p><strong>Mamie E. Curlett</strong> (Moody)</p>
+          <p><img src="web-family/maurineJoe.jpg" class="img-rounded" alt="Dad" width="300px" height="350px"></p>
+          <p><strong>Parents Joe and Maurine</strong></p>
+          <p><img src="web-family/mamieImed.jpg" class="img-rounded" alt="Dad" width="300px" height="350px"></p>
+          <p><strong>Parents, Uncle Joe and Mom</strong></p>
+        </div>
+        <div class="panel-footer">
+          <p><img src="web-family/emmaLogo.jpg" class="img-circle" alt="EJH" width="150px" height="150px"></p>
+        
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Children</h1>
+        </div>
+        <div class="panel-body">
+          <p><img src="web-family/children1.jpg" class="img-circle" alt="Dad" width="300px" height="350px"></p>
+          <p><strong>Our Immediate Family</strong></p>
+            <p><img src="web-family/children2.jpg" class="img-circle" alt="Dad" width="300px" height="350px"></p>
+             <p><strong>Our Immediate Family</strong> and Children</p>
+            <p><img src="web-family/children.jpg" class="img-circle"alt="Dad" width="300px" height="350px"></p>
+          <p><strong>My Siblings</strong></p>
+        
+        </div>
+        <div class="panel-footer">
+          <p><img src="web-family/emmaLogo.jpg" class="img-rounded" alt="EJH" width="150px" height="150px"></p>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+
+<!-- Container (GALLERY) ROW 1-->
+<div id="gallery" class="container-fluid text-center">
+  <h2>Photo Gallery</h2>
+  <h4>Family Reunion 2014</h4>
+  <br>
+  <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03855.jpg" class="thumbnail">
+     <p>FRIEND OF THE FAMILY</p>
+      <img src="web-family/album/DSC03855.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03856.jpg" class="thumbnail">
+    <p>FRIEND OF THE FAMILY</p>
+      <img src="web-family/album/DSC03856.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03857.jpg" class="thumbnail">
+     <p>FAMILY</p>
+      <img src="web-family/album/DSC03857.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03858.jpg" class="thumbnail">
+     <p>SHARON AND DRAKE</p>
+      <img src="web-family/album/DSC03858.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+   <!--END ROW 1-->
+
+<!--BEGIN ROW 2-->
+  <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03859.jpg" class="thumbnail">
+     <p>TRACIE AND MRS. JACKSON</p>
+      <img src="web-family/album/DSC03859.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03860.jpg" class="thumbnail">
+    <p>SYL AND WIFE</p>
+      <img src="web-family/album/DSC03860.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03861.jpg" class="thumbnail">
+     <p>FAMILY</p>
+      <img src="web-family/album/DSC03861.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03863.jpg" class="thumbnail">
+     <p>FAMILY</p>
+      <img src="web-family/album/DSC03863.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+   <!--END ROW 2-->
+
+<!--BEGIN ROW 3-->
+
+  <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03864.jpg" class="thumbnail">
+     <p>FAMILY</p>
+      <img src="web-family/album/DSC03864.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03865.jpg" class="thumbnail">
+    <p>CRICKET AND GENE</p>
+      <img src="web-family/album/DSC03865.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03866.jpg" class="thumbnail">
+     <p>KEITH</p>
+      <img src="web-family/album/DSC03866.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03868.jpg" class="thumbnail">
+     <p>LYNETTE, NICKEITRA AND ANGEL</p>
+      <img src="web-family/album/DSC03868.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+   <!--END ROW 3-->
+
+<!--BEGIN ROW 4-->
+
+   <div id="gallery" class="container-fluid text-center">
+ <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03869.jpg" class="thumbnail">
+     <p>FAMILY</p>
+      <img src="web-family/album/DSC03869.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03870.jpg" class="thumbnail">
+    <p>DEBRA AND CHILD</p>
+      <img src="web-family/album/DSC03870.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03872.jpg" class="thumbnail">
+     <p>SYL AND FATMAN</p>
+      <img src="web-family/album/DSC03872.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03873.jpg" class="thumbnail">
+     <p>MOM AND FATMAN</p>
+      <img src="web-family/album/DSC03873.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+   <!--END ROW 4-->
+
+<!--BEGIN ROW 5-->
+   <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03878.jpg" class="thumbnail">
+     <p>MATRIARCHS</p>
+      <img src="web-family/album/DSC03878.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03879.jpg" class="thumbnail">
+    <p>KEITH AND ESTHER</p>
+      <img src="web-family/album/DSC03879.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03880.jpg" class="thumbnail">
+     <p>PATRIARCHS</p>
+      <img src="web-family/album/DSC03880.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03882.jpg" class="thumbnail">
+     <p>WIVES</p>
+      <img src="web-family/album/DSC03882.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+   <!--END ROW -->
+
+<!--BEGIN ROW 6-->
+
+   <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03883.jpg" class="thumbnail">
+     <p>CHILDREN</p>
+      <img src="web-family/album/DSC03883.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03885.jpg" class="thumbnail">
+    <p>ROBERT AND DAUGHTERS</p>
+      <img src="web-family/album/DSC03885.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03887.jpg" class="thumbnail">
+     <p>MOM AND DEBRA</p>
+      <img src="web-family/album/DSC03887.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03898.jpg" class="thumbnail">
+     <p>NICK AND FAMILY</p>
+      <img src="web-family/album/DSC03898.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    </div></div></div>
+
+
+   <!--END ROW -->
+
+<!--BEGIN ROW 7-->
+
+   <div id="gallery" class="container-fluid text-center">
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <a href="web-family/album/DSC03850.jpg" class="thumbnail">
+     <h4>FAMILY</h4>
+      <img src="web-family/album/DSC03850.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+      
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03851.jpg" class="thumbnail">
+     <h4>FAMILY</h4>
+      <img src="web-family/album/DSC03851.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03852.jpg" class="thumbnail">
+     <h4>FAMILY</h4>
+      <img src="web-family/album/DSC03852.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+    
+    </div>
+
+     <div class="col-sm-3">
+      <a href="web-family/album/DSC03853.jpg" class="thumbnail">
+     <h4>CRICKET AND NEPHEW</h4>
+      <img src="web-family/album/DSC03853.jpg" class="img-thumbnail" alt="Women" width="387px" height="290px"></a>
+      <span class="glyphicon glyphicon-star logo-small"></span>
+     
+    </div></div></div>
+
+   <!--END ROW 7-->
+
+   <!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> St. Louis, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 13147779311</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> nkcurlett@gmail.com</p>	   
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>	
+    </div>
+  </div>
+</div>
+
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+<!-- Add Google Maps 
+Get the coordinates of a place
+Get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer.
+
+Open Google Maps.
+Right-click the place or area on the map.
+Select What's here?
+A card appears at the bottom of the screen with more info.
+Note: If you're using Maps in Lite mode, you won't be able to get the coordinates of a place.-->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(38.754771, -90.242861);
+
+function initialize() {
+var mapProp = {
+  center:myCenter,
+  zoom:12,
+  scrollwheel:false,
+  draggable:false,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>COPYRIGHT &copy CLASS EXAMPLE FAMILY REUNION 2014</p>		
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
